@@ -18,6 +18,13 @@ float velocityy = 3;
 //player
 float p1x,p1y,p1d;
 
+//lives
+int lives = 3;
+
+
+//points
+int points = 0;
+
 
 //int mode;
 

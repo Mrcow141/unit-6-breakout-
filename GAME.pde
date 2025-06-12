@@ -43,7 +43,23 @@ void draw() {
     if (dKey) p1x = p1x + 5;
    p1x = constrain(p1x,100,900);
    p1y = constrain(p1y,800,800);
+   
+   //lives
+   textSize(20);
+   text(lives,170,750);
+   text("lives : ",100,750);
+   if(ballx>0&&ballx<1000&&bally>810&&bally<820){
+    ballx = width/2;
+    bally = height/2;
+    lives -= 1; 
+   }
+   
+   text("points",760,750);
+   text(points,820,750);
   }
+  
+  
+  //array
 //}
 
 void gradient() {
