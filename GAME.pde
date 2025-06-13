@@ -10,6 +10,10 @@ void setup() {
  ballx = width/2;
  bally = height/2;
  balld = 20;
+ 
+ bricksx = new int[n];
+bricksy = new int [n];
+
 
 
 
@@ -52,14 +56,25 @@ void draw() {
     ballx = width/2;
     bally = height/2;
     lives -= 1; 
+    velocityx = 0;
+    velocityy = 3;
+    
+    //if(lives ==0){
+    // mode = GAMEOVER; 
+    //}
    }
    
    text("points",760,750);
    text(points,820,750);
   }
   
+  //void mousePressed(){
+    
+  //}
   
   //array
+  circle(bricksx[n],bricksy[n],bricksd);
+  
 //}
 
 void gradient() {

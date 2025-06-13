@@ -24,8 +24,15 @@ int lives = 3;
 
 //points
 int points = 0;
+ 
+//arrays/bricks
+int[] bricksx;
+int[] bricksy;
+int bricksd = 25;
 
+int n;
 
+int i;
 //int mode;
 
 //final int INTRO = 0 ;
