@@ -33,28 +33,27 @@ int points = 0;
 int[] bricksx;
 int[] bricksy;
 int bricksd = 65;
-
 int n = 45;
-  int i = 0;
-  
-  int tempx,tempy;
-  
+int i = 0;
+int tempx, tempy;
+boolean[] alive;
 
-//int mode;
 
-//final int INTRO = 0 ;
-//final int GAME = 1;
-//final int PAUSE = 2;
-//int GAMEOVER;
+int mode;
 
-//void draw() {
-//  if (mode ==INTRO) {
-//    intro();
-//  } else if (mode == PAUSE) {
-//    pausescreen();
-//  } else if (mode == GAMEOVER) {
-//    gameover();
-//  } else if (mode == GAME) {
-//    game();
-//  } //println("Mode Error: Mode is" + mode);
-//}
+final int INTRO = 0 ;
+final int GAME = 1;
+final int PAUSE = 2;
+int GAMEOVER;
+
+void draw() {
+  if (mode ==INTRO) {
+    intro();
+  } else if (mode == PAUSE) {
+    pausescreen();
+  } else if (mode == GAMEOVER) {
+    gameover();
+  } else if (mode == GAME) {
+    game();
+  } //println("Mode Error: Mode is" + mode);
+}

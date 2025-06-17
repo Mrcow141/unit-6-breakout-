@@ -11,35 +11,32 @@ void setup() {
   bally = height/2 + 200;
   balld = 20;
 
-//int n = 40;
+  //int n = 40;
 
   bricksx = new int[n];
   bricksy = new int[n];
   
-  tempx = 100; 
+  alive = new boolean [n];
+
+  tempx = 100;
   tempy = 75;
   int i =0;
-  while (i< n){
-   bricksx[i] =tempx;
-   bricksy[i] = tempy;
-   //if(bricksy[i] == 100) fill(fadetoppartofhair);
-   //if(bricksy[i] == 200) fill(fadebottompartofhair);
-   //if(bricksy[i] == 300) fill(razes);
-   //if(bricksy[i] == 400) fill(razehat);
-   //if(bricksy[i] == 500) fill(kayohead);
-   tempx = tempx +100;
-   if(tempx == width){
-     tempx = 100;
-    tempy = tempy + 100; 
-   }
-    i = i +1; 
+  while (i< n) {
+    bricksx[i] =tempx;
+    bricksy[i] = tempy;
+    alive[i] = true;
+    tempx = tempx +100;
+    if (tempx == width) {
+      tempx = 100;
+      tempy = tempy + 100;
+    }
+    i = i +1;
   }
-  
 }
 
 
-void draw() {
-  //if (mode == GAME) {
+void game() {
+  if (mode == GAME) {
   //player
   background(gray);
   player(p1x, p1y, p1d);
@@ -72,7 +69,7 @@ void draw() {
   text("lives : ", 100, 750);
   if (ballx>0&&ballx<1000&&bally>810&&bally<820) {
     ballx = width/2;
-    bally = height/2;
+    bally = height/2 +200;
     lives -= 1;
     velocityx = 0;
     velocityy = 3;
@@ -84,28 +81,38 @@ void draw() {
 
   text("points", 760, 750);
   text(points, 820, 750);
-  
+
   //arrays
   int i = 0;
-  while(i<n){
-   if(bricksy[i] == 100) fill(fadetoppartofhair);
-   if(bricksy[i] == 200) fill(fadebottompartofhair);
-   if(bricksy[i] == 300) fill(razes);
-   if(bricksy[i] == 400) fill(razehat);
-   if(bricksy[i] == 500) fill(kayohead);
-  circle(bricksx[i], bricksy[i], bricksd); 
-  if(dist(ballx,bally,bricksx[i],bricksy[i]) < balld/2 + bricksd/2){
-   velocityx = (ballx - bricksx[i])/10;
-   velocityy = (bally - bricksy[i])/10;
+  while (i<n) {
+    if(alive[i] == true){
+    drawingofthebricks(i);
+    howtheballbounces(i);
+    }
+    i = i + 1;
   }
   
-  i = i + 1;
+  //if(alive[i] == false){
+  // points = points + 1; 
+  //}
+  }
+  
+  if (lives == 0){
+   mode = GAMEOVER; 
   }
 }
 
-//void mousePressed(){
-
-//}
+void mousePressed(){
+if (mode == INTRO){
+mpintro();  
+}else if (mode == PAUSE){
+  
+} else if(mode == GAMEOVER){
+  
+}else if (mode == GAME){
+  
+}
+}
 
 
 
@@ -126,6 +133,23 @@ void draw() {
 //  }
 //}
 
+void drawingofthebricks(int i) {
+  if (bricksy[i] == 75) fill(fadetoppartofhair);
+  if (bricksy[i] == 175) fill(fadebottompartofhair);
+  if (bricksy[i] == 275) fill(razes);
+  if (bricksy[i] == 375) fill(razehat);
+  if (bricksy[i] == 475) fill(kayohead);
+  circle(bricksx[i], bricksy[i], bricksd);
+}
+
+void howtheballbounces(int i) {
+  if (dist(ballx, bally, bricksx[i], bricksy[i]) < balld/2 + bricksd/2) {
+    velocityx = (ballx - bricksx[i])/7;
+    velocityy = (bally - bricksy[i])/7;
+    alive[i] = false;
+   points ++;
+  }
+}
 
 void player(float p1x, float p1y, float p1d) {
   strokeWeight(3);
