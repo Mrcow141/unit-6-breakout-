@@ -2,6 +2,11 @@
 
 void setup() {
   size(1000, 800);
+  
+  setupScene();
+}
+
+void setupScene() {
   //declaring variables
   p1x = width/2;
   p1y = height;
@@ -10,6 +15,8 @@ void setup() {
   ballx = width/2 ;
   bally = height/2 + 200;
   balld = 20;
+  
+  lives = 3;
 
   //int n = 40;
 
@@ -33,7 +40,6 @@ void setup() {
     i = i +1;
   }
 }
-
 
 void game() {
   if (mode == GAME) {
@@ -74,9 +80,9 @@ void game() {
     velocityx = 0;
     velocityy = 3;
 
-    //if(lives ==0){
-    // mode = GAMEOVER;
-    //}
+    if(lives ==0){
+     mode = GAMEOVER;
+    }
   }
 
   text("points", 760, 750);
@@ -99,6 +105,7 @@ void game() {
   
   if (lives == 0){
    mode = GAMEOVER; 
+   
   }
 }
 
@@ -108,7 +115,8 @@ mpintro();
 }else if (mode == PAUSE){
   
 } else if(mode == GAMEOVER){
-  
+  gameover();
+  mousepressednut();
 }else if (mode == GAME){
   
 }
