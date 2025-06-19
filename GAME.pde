@@ -101,6 +101,9 @@ void game() {
   //if(alive[i] == false){
   // points = points + 1; 
   //}
+  fill(white);
+  tactile(750,600,100,50);
+   rect(750,600,100,50,15);
   }
   
   if (lives == 0){
@@ -113,15 +116,19 @@ void mousePressed(){
 if (mode == INTRO){
 mpintro();  
 }else if (mode == PAUSE){
-  
+  mousepressedpausescreenbacktomaingame();
 } else if(mode == GAMEOVER){
-  gameover();
-  mousepressednut();
+  mousepressedgameover();
 }else if (mode == GAME){
-  
+  mousepressdtopausescreen();
 }
 }
 
+void mousepressdtopausescreen(){
+ if(mouseX>750 && mouseX< 850 && mouseY>600 && mouseY<650){ 
+  mode = PAUSE;
+}
+}
 
 
 
@@ -136,7 +143,6 @@ mpintro();
 //    color p = lerpColor(toppartofgradient, bottompartofgradient, transparency);
 //    stroke(p);
 //    line(0, y, width, y);
-
 //    y = y + 1;
 //  }
 //}

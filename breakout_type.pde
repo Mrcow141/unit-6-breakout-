@@ -44,7 +44,7 @@ int mode;
 final int INTRO = 0 ;
 final int GAME = 1;
 final int PAUSE = 2;
-int GAMEOVER;
+final int GAMEOVER = 3;
 
 void draw() {
   if (mode ==INTRO) {
@@ -56,4 +56,5 @@ void draw() {
   } else if (mode == GAME) {
     game();
   } //println("Mode Error: Mode is" + mode);
+  println(mode);
 }
