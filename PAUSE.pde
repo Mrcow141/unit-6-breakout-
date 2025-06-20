@@ -1,14 +1,18 @@
  void pausescreen(){
-   background(fadetoppartofhair);
+   image(gifpause[f],0,0,width,height);
+  f++;
+  if (f == numberofframes){
+   f=0; 
+  }
    
-   fill(black);
-   tactile(400,200,100,100);
-   rect(400,200,100,100,15);
+   fill(fadetoppartofhair);
+   tactile(450,700,100,100);
+   rect(450,700,100,100,15);
  }
  
  
  void mousepressedpausescreenbacktomaingame(){
-     if (mouseX>400&&mouseX<500&&mouseY>200&&mouseY<300) {
+     if (mouseX>450&&mouseX<550&&mouseY>700&&mouseY<800) {
        mode  = GAME;
  }
  }

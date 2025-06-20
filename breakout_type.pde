@@ -38,6 +38,17 @@ int i = 0;
 int tempx, tempy;
 boolean[] alive;
 
+PImage[] gifintro;
+int numberOfFrames;
+int frames;
+
+PImage[] gifpause;
+int numberofframes;
+int f;
+
+PImage[] gifgameover;
+int noofframes;
+int g;
 
 int mode;
 

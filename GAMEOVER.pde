@@ -1,5 +1,9 @@
 void gameover() {
-  background(black);
+  //image(gifgameover[g], 0, 0, width, height);
+  //g++;
+  //if (g == noofframes) {
+  //  g=0;
+  //}
   fill(white);
   tactile(450, 400, 130, 100);
   rect(450, 400, 130, 100, 10);

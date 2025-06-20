@@ -39,6 +39,35 @@ void setupScene() {
     }
     i = i +1;
   }
+  numberOfFrames = 24;
+  gifintro = new PImage [numberOfFrames];
+
+  int u = 0;
+
+  while (u < numberOfFrames) {
+    gifintro[u] = loadImage("frame_"+u+"_delay-0.04s.gif");
+    u = u +1;
+  }
+  
+  numberofframes = 28;
+  gifpause = new PImage [numberofframes];
+
+  int p = 0;
+
+  while (p < numberofframes) {
+    gifpause[p] = loadImage("frame_"+p+"_delay-0.1s.gif");
+    p = p +1;
+  }
+  
+   noofframes = 30;
+  gifgameover = new PImage [noofframes];
+
+  int o = 0;
+
+  while (o < noofframes) {
+    gifgameover[o] = loadImage("frame_"+o+"_delay-0.03s.gif");
+    o = o +1;
+  }
 }
 
 void game() {
@@ -103,7 +132,10 @@ void game() {
   //}
   fill(white);
   tactile(750,600,100,50);
-   rect(750,600,100,50,15);
+   rect(750,600,100,50,15);//pause
+   fill(black);
+   textSize(40);
+   text("pause",749,635);
   }
   
   if (lives == 0){

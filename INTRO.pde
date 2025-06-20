@@ -1,5 +1,9 @@
 void intro(){
-  background(fadetoppartofhair);
+  image(gifintro[frames],0,0,width,height);
+  frames++;
+  if (frames == numberOfFrames){
+   frames=0; 
+  }
   tactile(450,500, 130,100);
   rect(450,500, 130,100,10);
 }
